@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Review Collector</title>
+        <style>
+            body {
+                display: flex;
+                background-color: burlywood;
+                justify-content: space-evenly;
+            }
+            .reviews > div {
+                margin: 5px;
+                border: 2px solid red;
+                padding: 10px;
+                background-color: rgb(251, 243, 219);
+            }
+            .star {
+                font-size: 30px;
+                cursor: pointer;
+                color: rgb(237, 32, 32);
+            }
+
+            .star.active {
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="input-section">
+            <h1>Feedback form</h1>
+            <textarea name="form" id="form" rows="8" cols="60"></textarea>
+            <div id="star-container">
+                <span class="star" id="1">☆</span>
+                <span class="star" id="2">☆</span>
+                <span class="star" id="3">☆</span>
+                <span class="star" id="4">☆</span>
+                <span class="star" id="5">☆</span>
+            </div>
+
+            <p id="rating-value">Rating: 0</p>
+            <button type="submit">Submit</button>
+        </div>
+
+        <div class="reviews">
+            <h1>Reviews</h1>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

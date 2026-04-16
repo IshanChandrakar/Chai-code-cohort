@@ -18,11 +18,11 @@ document.querySelector(".inputs").addEventListener('click',(event)=>{
         
         let operationOutput = document.createElement("span")
         if(userInput=="plus")
-            operationOutput.textContent = " + "
+            operationOutput.textContent = "+"
         else if(userInput=="minus")
             operationOutput.textContent = " - "
         else if(userInput=="multiply")
-            operationOutput.textContent = " * "
+            operationOutput.textContent = " X "
         else if(userInput=="divide")
             operationOutput.textContent = " / "
         output.appendChild(operationOutput)

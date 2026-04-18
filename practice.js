@@ -89,14 +89,55 @@
 // console.log(maxActivityUser);
 
 // category wise price with reduce function
-let expenses = [
-  { title: "Tea", amount: 10, type: "food" },
-  { title: "Rice", amount: 50, type: "food" },
-  { title: "Internet", amount: 100, type: "utility" }
-]
+// let expenses = [
+//   { title: "Tea", amount: 10, type: "food" },
+//   { title: "Rice", amount: 50, type: "food" },
+//   { title: "Internet", amount: 100, type: "utility" }
+// ]
 
-const categoryExpense = expenses.reduce((acc, curr)=>{
-    acc[curr.type] = (acc[curr.type] || 0) + curr.amount
-    return acc
-},{})
-console.log(categoryExpense);
+// const categoryExpense = expenses.reduce((acc, curr)=>{
+//     acc[curr.type] = (acc[curr.type] || 0) + curr.amount
+//     return acc
+// },{})
+// console.log(categoryExpense);
+
+// Count total characters in array of strings
+// const arr = ["ishan", 'chandrakar']
+// let totalChars = arr.reduce((acc, curr)=> acc+curr.length, 0)
+// console.log(totalChars);
+
+// Count frequency of elements
+// const arr = ['ishan', 'rajat', 'ishan', 'rajat', 'ginny']
+// const frequency = arr.reduce((acc, curr)=>{
+//     acc[curr] = (acc[curr] || 0) + 1
+//     return acc
+// },{})
+// console.log(frequency);
+
+// conver array to object
+// const arr = ["a", "b", "c", "d"]
+// const obj = arr.reduce((acc, curr)=>{
+//     acc[curr] = true
+//     return acc
+// }, {})
+// console.log(obj);
+
+// const arr = [{name: "ishan", age:20}, {name: "piyush", age:20}, {name: "hitesh",age:30}]
+// const grouping = arr.reduce((acc, curr)=>{
+//     acc[curr.age] = (acc[curr.age] || "") + curr.name
+//     return acc
+// },{})
+// console.log(grouping);
+
+// own reduce method
+// function myReduce(arr, callback, initialValue){
+//     let acc = initialValue
+//     for(let i=0; i<arr.length; i++){
+//         acc = callback(acc,arr[i])
+//     }
+//     return acc
+// }
+// const arr = [1,2,3,4,5]
+// const sum = myReduce(arr,(acc, curr)=> acc+curr,0)
+
+// console.log(sum);

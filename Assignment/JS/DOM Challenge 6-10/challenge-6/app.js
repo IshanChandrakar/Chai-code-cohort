@@ -12,8 +12,7 @@ let prevHourDeg = 0;
 
 setInterval(() => {
     let date = new Date();
-    let hour = date.getHours();
-    if (hour > 12) hour = hour % 12;
+    let hour = date.getHours() % 12 || 12;
     let minute = date.getMinutes();
     let second = date.getSeconds();
     let day = date.getDate()

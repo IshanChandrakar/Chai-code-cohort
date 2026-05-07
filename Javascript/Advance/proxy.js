@@ -15,29 +15,29 @@
 // })
 // console.log(proxyUSer)
 
-const arr = [1,2,3,4,5]
-function negativeIndex(arr){
-    return new Proxy(arr,{
-        get(target, prop){
-            const index = Number(prop)
-            if(index<0)
-                return target[target.length + index]
-            return target[index]
-        },
-        set(target, prop, value){
-            const index = Number(prop)
-            if(index<0)
-                target[target.length + index] = value
-            else
-                target[index] = value
-            return true
-        }
-    })
-}
-const proxyArray = negativeIndex(arr)
-proxyArray[-2] = 100
-console.log(arr);
-console.log(proxyArray);
+// const arr = [1,2,3,4,5]
+// function negativeIndex(arr){
+//     return new Proxy(arr,{
+//         get(target, prop){
+//             const index = Number(prop)
+//             if(index<0)
+//                 return target[target.length + index]
+//             return target[index]
+//         },
+//         set(target, prop, value){
+//             const index = Number(prop)
+//             if(index<0)
+//                 target[target.length + index] = value
+//             else
+//                 target[index] = value
+//             return true
+//         }
+//     })
+// }
+// const proxyArray = negativeIndex(arr)
+// proxyArray[-2] = 100
+// console.log(arr);
+// console.log(proxyArray);
 
 // const obj = {
 //     name: "ishan",
@@ -70,3 +70,20 @@ console.log(proxyArray);
 // proxyObj.name = "Rajat"
 // console.log(proxyObj);
 // console.log(obj);
+
+let userDetails = {
+    name: "Ishan",
+    age: 25,
+    password: "1234",
+};
+userDetails = new Proxy(userDetails, {
+    get(target, prop) {
+        if (prop in target) {
+            if(prop=="password")
+                return "chal hatt"
+            else
+                return target[prop]
+        }
+    },
+});
+console.log(userDetails["age"]);

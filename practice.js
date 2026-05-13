@@ -141,3 +141,42 @@
 // const sum = myReduce(arr,(acc, curr)=> acc+curr,0)
 
 // console.log(sum);
+
+// let name = "ishan"
+// function sayMyName(){
+//     let name = "rajat"
+//     console.log(`My name is ${name}`)
+// }
+// sayMyName()
+
+// let count = 0
+// function increment(){
+//     count++
+//     console.log(count)
+// }
+// increment()
+// increment()
+// increment()
+// increment()
+// increment()
+
+// function increment(){
+//     let count = 0
+//     return function(){
+//         count++
+//         return count
+//     }
+// }
+// const x = increment()
+
+// console.log(x());
+// console.log(x());
+// console.log(x());
+// console.log(x());
+
+function change(x){
+    x[1] = -10
+}
+let y = [1,2,3,4]
+change(y)
+console.log(y);

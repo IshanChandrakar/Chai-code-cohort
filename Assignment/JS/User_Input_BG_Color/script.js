@@ -18,6 +18,6 @@ submit.addEventListener("click", () => {
 
 addedButtons.addEventListener("click", (event) => {
     let bgValue = event.target.id;
-    alert(bgValue);
+    // alert(bgValue);
     body.style.backgroundColor = bgValue
 });

@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+#addTask{
+    margin-top: 20px;
+}
+#kanbanContainer{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+
+}
+#kanbanContainer > div{
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    height: 500px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+h2{
+    text-align: center;
+}
+#kanbanContainer>div>div{
+    border: 2px solid red;
+    border-radius: 5px;
+    margin: 5px 0px;
+    width: 70%;
+    padding: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    cursor: pointer;
+}
+#kanbanContainer>div>div:hover{
+    background-color: black;
+    color: white;
+}

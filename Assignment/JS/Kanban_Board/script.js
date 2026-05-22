@@ -9,16 +9,32 @@ addButton.addEventListener("click", () => {
     let taskName = prompt("Enter the task name")
     if (taskName) {
         let newTask = document.createElement("div");
-        newTask.className = "newTask";
+        newTask.classList.add('item');
         newTask.id = taskNum;
+        newTask.setAttribute('draggable', true)
         newTask.innerHTML = `${taskName} <button id=${taskNum} class="deleteBtn">Delete</button>`;
         todoContainer.appendChild(newTask);
 
         newTask.querySelector(".deleteBtn").addEventListener("click", (event) => {
-            console.log(event.target.id);
+            todoContainer.removeChild(newTask)
         });
 
+        newTask.addEventListener('dragstart', () => {
+            newTask.classList.add('flying');
+        });
+        newTask.addEventListener('dragend', () => {
+            newTask.classList.remove('flying');
+        });
+
+
         taskNum++;
-        document.querySelector("#taskName").value = "";
     }
 });
+
+const allBoards = document.querySelectorAll(".board")
+allBoards.forEach((board)=>{
+    board.addEventListener('dragover',()=>{
+        const flyingElement = document.querySelector(".flying")
+        board.appendChild(flyingElement)
+    })
+})

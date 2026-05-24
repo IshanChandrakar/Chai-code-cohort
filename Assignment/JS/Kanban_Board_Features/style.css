@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    font-family: sans-serif;
+}
+#addTaskBtn {
+    padding: 5px 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: #53cbf3;
+}
+#cardContainer {
+    display: flex;
+    gap: 30px;
+}
+.card {
+    box-shadow:
+        rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    border-radius: 20px;
+    min-height: 60vh;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e8edf2;
+}
+.addedTask {
+    background-color: white;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.addedTask > button {
+    border-radius: 5px;
+    background-color: darkgrey;
+    height: 30px;
+}
+
+.showPopup{
+    border: 1px solid red;
+    border-radius: 20px;
+    height: 25vh;
+    width: 20vw;
+    position: fixed;
+    top: 29%;
+    background-color: gainsboro;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+#changeTask{
+    height: 24px;
+    width: 80%;
+}
+#cancelBtn, #okBtn{
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    width: 100px;
+}
+#cancelBtn{
+    background-color: #FF0000;
+    color: white;
+    margin-right: 20px;
+
+}
+#okBtn{
+    background-color: #6FCF97;
+}
+.hidePopup{
+    display: none;
+}

@@ -1,36 +1,37 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kanban board + Feature</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="addBtn">
-        <button id="addTaskBtn">Add Task</button>
-    </div>
-    <div id="cardContainer">
-        <div id="todo" class="cards">
-            <h2>To Do</h2>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Kanban board + Feature</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="addBtn">
+            <button id="addTaskBtn">Add Task</button>
         </div>
-        <div id="inProgress" class="cards">
-            <h2>In Progress</h2>
+        <div id="cardContainer">
+            <div id="todo" class="cards">
+                <h2>To Do</h2>
+            </div>
+            <div id="inProgress" class="cards">
+                <h2>In Progress</h2>
+            </div>
+            <div id="completed" class="cards">
+                <h2>Completed</h2>
+            </div>
         </div>
-        <div id="completed" class="cards">
-            <h2>Completed</h2>
-        </div>
-    </div>
 
-
-    <div id="popupWindow" class="hidePopup">
-        <h2>Edit the task</h2>
-        <input type="text" name="" id="changeTask">
-        <div class="popupButtons">
-            <input type="button" value="Cancel" id="cancelBtn">
-            <input type="button" value="Ok" id="okBtn">
+        <div id="overlay" class="hideOverlay"></div>
+        <div id="popupWindow" class="hidePopup">
+            <h2>Edit the task</h2>
+            <input type="text" name="" id="changeTask" />
+            <div class="popupButtons">
+                <input type="button" value="Cancel" id="cancelBtn" />
+                <input type="button" value="Ok" id="okBtn" />
+            </div>
         </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+        
+        <script src="script.js"></script>
+    </body>
 </html>

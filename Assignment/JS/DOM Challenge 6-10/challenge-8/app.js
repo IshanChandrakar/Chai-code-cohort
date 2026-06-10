@@ -1,26 +1,26 @@
 /**
  * Write your challenge solution here
  */
-let items = ['T-Shirt', 'Jeans', 'Sneakers','Hat']
-let itemsCount = [0,0,0,0]
-let itemsPrice = [0,0,0,0]
+let items = ['T-Shirt', 'Jeans', 'Sneakers', 'Hat']
+let itemsCount = [0, 0, 0, 0]
+let itemsPrice = [0, 0, 0, 0]
 let totalPrice = 0
 let cartTotal = document.querySelector("#cart-total")
-function addToCart(item, price){
+function addToCart(item, price) {
     // getting index of selected item and updating the count and price
     let indexOfItem = items.indexOf(item)
     itemsCount[indexOfItem]++
-    itemsPrice[indexOfItem] = itemsPrice[indexOfItem]+price
-    totalPrice += price
+    itemsPrice[indexOfItem] = itemsPrice[indexOfItem] + price
+    totalPrice = totalPrice + price
 
     let cartItems = document.querySelector("#cart-items")
-    if(cartItems.classList.contains(item)){
+    if (cartItems.classList.contains(item)) {
         // updating quantity
         cartItems.querySelector(`.${item}`).querySelector(".itemQuantity").textContent = itemsCount[indexOfItem]
         cartItems.querySelector(`.${item}`).querySelector(".itemTotalPrice").textContent = itemsPrice[indexOfItem]
         cartTotal.innerHTML = `Total: $${totalPrice}`
     }
-    else{
+    else {
         let newItem = document.createElement("div")
         newItem.textContent = item
 
@@ -38,7 +38,7 @@ function addToCart(item, price){
         let removeButton = document.createElement("button")
         removeButton.textContent = "Remove"
 
-        newItem.appendChild(minusButton)    
+        newItem.appendChild(minusButton)
         newItem.appendChild(quantity)
         newItem.appendChild(plusButton)
         newItem.appendChild(itemPrice)
@@ -48,9 +48,38 @@ function addToCart(item, price){
         cartItems.classList.add(item)
         cartTotal.innerHTML = `Total: $${totalPrice}`
 
-        removeButton.addEventListener("click",()=>{
+        minusButton.addEventListener("click", () => {
+            console.log(itemsCount[indexOfItem])
+            if (itemsCount[indexOfItem] > 1) {
+                itemsCount[indexOfItem]--
+                quantity.textContent = itemsCount[indexOfItem]
+                itemsPrice[indexOfItem] = itemsPrice[indexOfItem] - price
+                itemPrice.textContent = itemsPrice[indexOfItem] / 100
+                totalPrice = totalPrice - price
+                cartTotal.innerHTML = `Total: $${totalPrice}`
+            }
+            else if (itemsCount[indexOfItem] == 1) {
+                cartItems.removeChild(newItem)
+                cartItems.classList.remove(item)
+                totalPrice = totalPrice - price
+                cartTotal.innerHTML = `Total: $${totalPrice}`
+            }
+        })
+
+        plusButton.addEventListener("click", () => {
+            itemsCount[indexOfItem]++
+            quantity.textContent = itemsCount[indexOfItem]
+            itemsPrice[indexOfItem] = itemsPrice[indexOfItem] + price
+            itemPrice.textContent = itemsPrice[indexOfItem]
+            totalPrice = totalPrice + price
+            cartTotal.innerHTML = `Total: $${totalPrice}`
+        })
+
+        removeButton.addEventListener("click", () => {
             cartItems.removeChild(newItem)
             cartItems.classList.remove(item)
+            totalPrice = totalPrice - itemsPrice[indexOfItem]
+            cartTotal.innerHTML = `Total: $${totalPrice}`
         })
     }
 }

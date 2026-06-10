@@ -55,3 +55,13 @@ button {
   color: #666;
   padding: 20px;
 }
+#cart-items > div{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.rightItemContent{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}

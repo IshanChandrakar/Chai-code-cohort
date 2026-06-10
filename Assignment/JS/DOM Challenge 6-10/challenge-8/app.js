@@ -12,18 +12,20 @@ function addToCart(item, price) {
     itemsCount[indexOfItem]++
     itemsPrice[indexOfItem] = itemsPrice[indexOfItem] + price
     totalPrice = totalPrice + price
-
+    
     let cartItems = document.querySelector("#cart-items")
     if (cartItems.classList.contains(item)) {
         // updating quantity
         cartItems.querySelector(`.${item}`).querySelector(".itemQuantity").textContent = itemsCount[indexOfItem]
-        cartItems.querySelector(`.${item}`).querySelector(".itemTotalPrice").textContent = itemsPrice[indexOfItem]
-        cartTotal.innerHTML = `Total: $${totalPrice}`
+        cartItems.querySelector(`.${item}`).querySelector(".itemTotalPrice").textContent = itemsPrice[indexOfItem]/100
+        cartTotal.innerHTML = `<h3>Total: $${totalPrice/100}</h3>`
     }
     else {
         let newItem = document.createElement("div")
-        newItem.textContent = item
+        let itemText = document.createElement("div")
+        itemText.textContent = item
 
+        let rightItemContent = document.createElement("div")
         let minusButton = document.createElement("button")
         minusButton.classList.add("subtractItem")
         minusButton.textContent = "-"
@@ -34,19 +36,23 @@ function addToCart(item, price) {
         plusButton.textContent = "+"
         let itemPrice = document.createElement("span")
         itemPrice.classList.add("itemTotalPrice")
-        itemPrice.textContent = itemsPrice[indexOfItem]
+        itemPrice.textContent = itemsPrice[indexOfItem]/100
         let removeButton = document.createElement("button")
         removeButton.textContent = "Remove"
 
-        newItem.appendChild(minusButton)
-        newItem.appendChild(quantity)
-        newItem.appendChild(plusButton)
-        newItem.appendChild(itemPrice)
-        newItem.appendChild(removeButton)
+        rightItemContent.appendChild(minusButton)
+        rightItemContent.appendChild(quantity)
+        rightItemContent.appendChild(plusButton)
+        rightItemContent.appendChild(itemPrice)
+        rightItemContent.appendChild(removeButton)
+        rightItemContent.classList.add("rightItemContent")
         newItem.classList.add(item)
+
+        newItem.appendChild(itemText)
+        newItem.appendChild(rightItemContent)
         cartItems.appendChild(newItem)
         cartItems.classList.add(item)
-        cartTotal.innerHTML = `Total: $${totalPrice}`
+        cartTotal.innerHTML = `<h3>Total: $${totalPrice/100}</h3>`
 
         minusButton.addEventListener("click", () => {
             console.log(itemsCount[indexOfItem])
@@ -56,13 +62,13 @@ function addToCart(item, price) {
                 itemsPrice[indexOfItem] = itemsPrice[indexOfItem] - price
                 itemPrice.textContent = itemsPrice[indexOfItem] / 100
                 totalPrice = totalPrice - price
-                cartTotal.innerHTML = `Total: $${totalPrice}`
+                cartTotal.innerHTML = `<h3>Total: $${totalPrice/100}</h3>`
             }
             else if (itemsCount[indexOfItem] == 1) {
                 cartItems.removeChild(newItem)
                 cartItems.classList.remove(item)
                 totalPrice = totalPrice - price
-                cartTotal.innerHTML = `Total: $${totalPrice}`
+                cartTotal.innerHTML = `<h3>Total: $${totalPrice/100}</h3>`
             }
         })
 
@@ -70,16 +76,16 @@ function addToCart(item, price) {
             itemsCount[indexOfItem]++
             quantity.textContent = itemsCount[indexOfItem]
             itemsPrice[indexOfItem] = itemsPrice[indexOfItem] + price
-            itemPrice.textContent = itemsPrice[indexOfItem]
+            itemPrice.textContent = itemsPrice[indexOfItem]/100
             totalPrice = totalPrice + price
-            cartTotal.innerHTML = `Total: $${totalPrice}`
+            cartTotal.innerHTML = `<h3>Total: $${totalPrice/100}</h3>`
         })
 
         removeButton.addEventListener("click", () => {
             cartItems.removeChild(newItem)
             cartItems.classList.remove(item)
             totalPrice = totalPrice - itemsPrice[indexOfItem]
-            cartTotal.innerHTML = `Total: $${totalPrice}`
+            cartTotal.innerHTML = `<h3>Total: $${totalPrice/100}</h3>`
         })
     }
 }

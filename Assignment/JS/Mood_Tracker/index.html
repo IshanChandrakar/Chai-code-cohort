@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mood Tracker</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="moodTrackerDiv">
+            <h1>Mood Tracker</h1>
+            <div id="dateContainer">
+                <h3>Pick date</h3>
+                <input type="date" name="dateInput" id="dateInput">
+            </div>
+            <div class="emojiContainer">
+                <div id="happyMood" class="emoji">
+                    <span>😀</span>
+                    <span class="tooltip">Happy</span>
+                </div>
+                <div id="sadMood" class="emoji">
+                    <span>😞</span>
+                    <span class="tooltip">Sad</span>
+                </div>
+                <div id="excitedMood" class="emoji">
+                    <span>🤩</span>
+                    <span class="tooltip">Excited</span>
+                </div>
+                <div id="neutralMood" class="emoji">
+                    <span>😐</span>
+                    <span class="tooltip">Neutral</span>
+                </div>
+                <div id="fearfulMood" class="emoji">
+                    <span>😱</span>
+                    <span class="tooltip">Fearful</span>
+                </div>
+            </div>
+            <button id="submitBtn">Submit</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

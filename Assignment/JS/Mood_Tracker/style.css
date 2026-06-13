@@ -1,0 +1,55 @@
+.moodTrackerDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: sans-serif;
+}
+#dateContainer{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+#dateInput{
+    height: 30px;
+    width: 150px;
+    font-size: 20px;
+}
+.emojiContainer {
+    display: flex;
+    gap: 20px;
+}
+.emoji {
+    cursor: pointer;
+    font-size: 40px;
+}
+#happyMood, #sadMood, #excitedMood, #neutralMood, #fearfulMood{
+    position: relative;
+    display: inline-block;
+}
+.tooltip {
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    font-size: 14px;
+}
+#happyMood:hover .tooltip, #sadMood:hover .tooltip, #excitedMood:hover .tooltip, #neutralMood:hover .tooltip, #fearfulMood:hover .tooltip{
+    opacity: 1;
+    visibility: visible;
+}
+#submitBtn{
+    height: 35px;
+    width: 100px;
+    border-radius: 5px;
+    background-color: aquamarine;
+    font-size: 20px;
+    margin-top: 20px;
+}

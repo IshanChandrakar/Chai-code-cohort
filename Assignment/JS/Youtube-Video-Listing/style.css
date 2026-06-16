@@ -1,0 +1,58 @@
+body{
+    margin: 0; padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#searchSection{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#searchInput{
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 1px solid gray;
+    padding-left: 10px;
+}
+#submit>img{
+    height: 25px;
+}
+#youtubeVideoList{
+    display: grid;
+    grid-template-columns: repeat(4, 400px);
+}
+.videoContainer{
+    /* width: 350px; */
+    padding: 10px;
+    border-radius: 10px;
+}
+.videoContainer:hover{
+    background-color: bisque;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.thumbnail{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    width: 100%;
+}
+.title{
+    font-weight: bold;
+    font-size: 20px;
+}
+.videoDetails{
+    margin-top: 10px;
+}
+.channelName{
+    margin: 5px 0px;
+}
+.searched{
+    background-color: cyan;
+}

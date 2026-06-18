@@ -1,17 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Library</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
     <h1>Book Library</h1>
-    <div id="bookList">
+    <div id="header">
+        <div id="searchSection">
+            <input type="text" name="" id="searchInput" placeholder="search by author or title" />
+            <button id="searchBtn">Submit</button>
+        </div>
+        <div id="displaySelection">
+            <label for="displayStyle">Choose display style:</label>
+            <select id="displayStyle" name="displayStyle">
+                <option value="grid">Grid</option>
+                <option value="list">List</option>
+            </select>
+        </div>
+    </div>
+    <div id="bookList" class="grid">
         <!-- <div class="bookContainer">
             <div class="imageContainer">
-                <img src="" alt="" id="bookImg">
+                <img src="" alt="" class="bookImg">
             </div>
             <div class="bookDetails">
                 <p class="title"></p>
@@ -24,4 +39,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

@@ -1,10 +1,12 @@
 const bookList = document.getElementById("bookList")
-async function getBookDetails(){
+const titleArray = []
+const authorArray = []
+async function getBookDetails() {
     const response = await fetch("https://api.freeapi.app/api/v1/public/books")
     const data = await response.json()
     const bookDetailsArray = data["data"]["data"]
-    
-    bookDetailsArray.forEach(book=>{
+    let bookId = 0
+    bookDetailsArray.forEach(book => {
         let bookContainer = document.createElement("div")
         bookContainer.classList.add("bookContainer")
         let imageContainer = document.createElement("div")
@@ -20,23 +22,67 @@ async function getBookDetails(){
         let title = document.createElement("p")
         title.classList.add("title")
         title.textContent = `${book["volumeInfo"]["title"]}`
-        
+        titleArray.push(book["volumeInfo"]["title"])
+
         let author = document.createElement("p")
         author.classList.add("author")
-        author.textContent = `${book["volumeInfo"]["authors"]}`
+        author.textContent = `By: ${book["volumeInfo"]["authors"]}`
+        authorArray.push(book["volumeInfo"]["authors"])
 
         let publisher = document.createElement("p")
         publisher.classList.add("publisher")
         publisher.textContent = `${book["volumeInfo"]["publisher"]}`
-        
+
         let publishedDate = document.createElement("p")
         publishedDate.classList.add("publishedDate")
         publishedDate.textContent = `${book["volumeInfo"]["publishedDate"]}`
 
         bookDetails.append(title, author, publisher, publishedDate)
-        
-        bookList.append(bookContainer, bookDetails)
+
+        bookContainer.append(imageContainer, bookDetails)
+        bookContainer.setAttribute("id", bookId)
+
+        bookList.append(bookContainer)
+        bookId++
     })
-    
+
 }
 getBookDetails()
+
+const searchBtn = document.getElementById("searchBtn")
+searchBtn.addEventListener("click", () => {
+    let searchInput = document.getElementById("searchInput")
+    searchInput = searchInput.value
+    if (searchInput) {
+        for (let i = 0; i < titleArray.length; i++) {
+            if (titleArray[i].includes(searchInput)) {
+                let searchedBook = document.getElementById(i)
+                document.getElementById("bookList").replaceChildren()
+                document.getElementById("bookList").append(searchedBook)
+            }
+        }
+        for (i = 0; i < authorArray.length; i++) {
+            for (let j = 0; j < authorArray[i].length; j++) {
+                if (authorArray[i][j].includes(searchInput)) {
+                    let searchedBook = document.getElementById(i)
+                    document.getElementById("bookList").replaceChildren()
+                    document.getElementById("bookList").append(searchedBook)
+                }
+            }
+        }
+    }
+})
+
+const displayStyle = document.getElementById("displayStyle")
+displayStyle.addEventListener("change",(event)=>{
+    let selection = event.target.value
+    if(selection=="grid"){
+        bookList.classList.remove("list")
+        bookList.classList.add("grid")
+    }
+    if(selection=="list"){
+        bookList.classList.remove("grid")
+        bookList.classList.add("list")
+    }
+    
+})

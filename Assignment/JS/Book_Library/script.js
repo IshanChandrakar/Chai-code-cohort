@@ -13,10 +13,17 @@ async function getBookDetails() {
         bookContainer.classList.add("bookContainer")
         let imageContainer = document.createElement("div")
         imageContainer.classList.add("imageContainer")
+        
+        let bookLink = document.createElement("a")
+        bookLink.href = `${book["volumeInfo"]["infoLink"]}`
+        bookLink.setAttribute("target","_blank")
+
         let bookImg = document.createElement("img")
         bookImg.classList.add("bookImg")
         bookImg.src = `${book["volumeInfo"]["imageLinks"]["smallThumbnail"]}`
-        imageContainer.appendChild(bookImg)
+        bookLink.appendChild(bookImg)
+        
+        imageContainer.appendChild(bookLink)
         bookContainer.appendChild(imageContainer)
 
         let bookDetails = document.createElement("div")
@@ -126,6 +133,4 @@ sortBooks.addEventListener("change", (event) => {
             bookList.appendChild(book)
         })
     }
-
 })
-// document.querySelector

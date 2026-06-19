@@ -1,51 +1,57 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Book Library</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Library</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-
-<body>
-    <h1>Book Library</h1>
-    <div id="header">
-        <div id="searchSection">
-            <input type="text" name="" id="searchInput" placeholder="search by author or title" />
-            <button id="searchBtn">Submit</button>
-        </div>
-        <div id="displaySelection">
-            <label for="displayStyle">Choose display style:</label>
-            <select id="displayStyle" name="displayStyle">
-                <option value="grid">Grid</option>
-                <option value="list">List</option>
-            </select>
-        </div>
-        <div id="sortSection">
-            <label for="sortBooks">Sort by:</label>
-            <select id="sortBooks" name="sortBooks">
-                <option value="none">- -</option>
-                <option value="title">Title</option>
-                <option value="publishedDate">Published date</option>
-            </select>
-        </div>
-    </div>
-    <div id="bookList" class="grid">
-        <!-- <div class="bookContainer">
-            <div class="imageContainer">
-                <img src="" alt="" class="bookImg">
+    <body>
+        <h1>Book Library</h1>
+        <div id="header">
+            <div id="searchSection">
+                <input
+                    type="text"
+                    name=""
+                    id="searchInput"
+                    placeholder="search by author or title"
+                />
+                <button id="searchBtn">Submit</button>
             </div>
-            <div class="bookDetails">
-                <p class="title"></p>
-                <p class="author"></p>
-                <p class="publisher"></p>
-                <p class="publishedDate"></p>
+            <div id="displaySelection">
+                <label for="displayStyle">Choose display style:</label>
+                <select id="displayStyle" name="displayStyle">
+                    <option value="grid">Grid</option>
+                    <option value="list">List</option>
+                </select>
             </div>
-        </div> -->
-    </div>
+            <div id="sortSection">
+                <label for="sortBooks">Sort by:</label>
+                <select id="sortBooks" name="sortBooks">
+                    <option value="none">None</option>
+                    <option value="title">Title</option>
+                    <option value="publishedDate">Published date</option>
+                </select>
+            </div>
+        </div>
+        <div id="bookList" class="grid">
+            <!-- <div class="bookContainer">
+                    <div class="imageContainer">
+                        <a href="">
+                        <img src="" alt="" class="bookImg" />
+                        </a>
+                    </div>
+                    <div class="bookDetails">
+                        <p class="title"></p>
+                        <p class="author"></p>
+                        <p class="publisher"></p>
+                        <p class="publishedDate"></p>
+                    </div>
+                
+            </div> -->
+        </div>
 
-    <script src="script.js"></script>
-</body>
-
+        <script src="script.js"></script>
+    </body>
 </html>

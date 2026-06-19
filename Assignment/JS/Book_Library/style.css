@@ -22,12 +22,12 @@ h1{
     width: 80px;
     font-size: 18px;
 }
-#displaySelection > label{
+#displaySelection > label, #sortSection>label{
     font-size: 20px;
 }
-#displayStyle{
+#displayStyle, #sortBooks{
     height: 30px;
-    width: 80px;
+    width: 150px;
     font-size: 20px;
 }
 #bookList.grid{
@@ -43,13 +43,13 @@ h1{
     gap: 20px;
 }
 .bookContainer{
-    max-width: 500px;
+    max-width: 450px;
     display: flex;
     gap: 20px;
     align-items: center;
 }
 .bookImg{
-    height: 220px;
+    height: 200px;
 }
 .title{
     font-size: 22px;

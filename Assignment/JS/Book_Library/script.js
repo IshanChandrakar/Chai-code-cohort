@@ -1,6 +1,8 @@
 const bookList = document.getElementById("bookList")
 const titleArray = []
 const authorArray = []
+const publishedDateArray = []
+const booksArray = []
 async function getBookDetails() {
     const response = await fetch("https://api.freeapi.app/api/v1/public/books")
     const data = await response.json()
@@ -36,11 +38,13 @@ async function getBookDetails() {
         let publishedDate = document.createElement("p")
         publishedDate.classList.add("publishedDate")
         publishedDate.textContent = `${book["volumeInfo"]["publishedDate"]}`
+        publishedDateArray.push(book["volumeInfo"]["publishedDate"])
 
         bookDetails.append(title, author, publisher, publishedDate)
 
         bookContainer.append(imageContainer, bookDetails)
         bookContainer.setAttribute("id", bookId)
+        booksArray.push(bookContainer)
 
         bookList.append(bookContainer)
         bookId++
@@ -74,15 +78,54 @@ searchBtn.addEventListener("click", () => {
 })
 
 const displayStyle = document.getElementById("displayStyle")
-displayStyle.addEventListener("change",(event)=>{
+displayStyle.addEventListener("change", (event) => {
     let selection = event.target.value
-    if(selection=="grid"){
+    if (selection == "grid") {
         bookList.classList.remove("list")
         bookList.classList.add("grid")
     }
-    if(selection=="list"){
+    if (selection == "list") {
         bookList.classList.remove("grid")
         bookList.classList.add("list")
     }
-    
 })
+const newSortedBooks = []
+const sortBooks = document.getElementById("sortBooks")
+sortBooks.addEventListener("change", (event) => {
+    let sortSelection = event.target.value
+    if (sortSelection == "title") {
+        titleArray.sort()
+        titleArray.forEach(bookTitle => {
+            booksArray.forEach(individualBook => {
+                if (bookTitle == individualBook.querySelector(".title").textContent)
+                    newSortedBooks.push(individualBook)
+            })
+        })
+        bookList.replaceChildren()
+        newSortedBooks.forEach(book => {
+            bookList.append(book)
+        })
+
+    }
+    if (sortSelection == "publishedDate") {
+        publishedDateArray.sort()
+        publishedDateArray.forEach(publicationDate => {
+            booksArray.forEach(individualBook => {
+                if (publicationDate == individualBook.querySelector(".publishedDate").textContent)
+                    newSortedBooks.push(individualBook)
+            })
+        })
+        bookList.replaceChildren()
+        newSortedBooks.forEach(book => {
+            bookList.append(book)
+        })
+    }
+    if (sortSelection == "none") {
+        bookList.replaceChildren()
+        booksArray.forEach(book=>{
+            bookList.appendChild(book)
+        })
+    }
+
+})
+// document.querySelector
